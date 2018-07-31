@@ -2,9 +2,9 @@ $(function() {
   var canvas = document.getElementById("MyCanvas");
   var context = canvas.getContext("2d");
 
-  function hexagon(x, y) {
+  function hexagon(x, y, color) {
     var size = 40;
-
+    context.beginPath();
     context.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
 
     for (side = 0; side < 7; side++) {
@@ -15,15 +15,15 @@ $(function() {
       context.strokeStyle = "#ffa100";
       context.stroke();
     }
+    context.fillStyle = color;
+    context.fill();
   }
 
-  hexagon(240, 180);
-  context.fillStyle = "#ffa100";
-  context.fill();
-  hexagon(100, 180);
-  hexagon(170, 60);
-  hexagon(170, 140);
-  hexagon(170, 220);
-  hexagon(240, 100);
-  hexagon(100, 100);
+  hexagon(240, 180, "#ffa100");
+  hexagon(100, 180, "#ffffff");
+  hexagon(170, 60, "#ffffff");
+  hexagon(170, 140, "#ffffff");
+  hexagon(170, 220, "#ffffff");
+  hexagon(240, 100, "#ffffff");
+  hexagon(100, 100, "#ffffff");
 });
